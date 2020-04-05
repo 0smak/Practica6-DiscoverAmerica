@@ -1,0 +1,761 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: var(--bg-main);
+    padding-top: 100px;
+    transition: padding .25s ease-in-out;
+}
+
+button {
+    cursor: pointer;
+}
+
+section#header {
+    position: relative;
+    height: calc(55vh + 20px);
+    width: 100%;
+    background-color: var(--bg-main);
+    display: flex;
+    align-items: center;
+}
+
+section#header::before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 20px);
+    background: radial-gradient( #00000060 , #00000020);
+    z-index: 3;
+}
+
+
+section#header::after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--c4), var(--c1));
+    opacity: .25;
+    z-index: 0;
+}
+
+section#header > .text {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    color: var(--bg-main);
+    margin-left: 5%;
+    width: 100%;
+}
+
+section#header > .text .place {
+    position: relative;
+    color: transparent;
+}
+
+section#header > .text .place::before {
+    content: attr(data-text);
+    position: absolute;
+    color: var(--c3);
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    border-right: 2px solid var(--c3);
+    padding-right: 2px;
+}
+
+.pl-0::before {
+    animation: type 3s steps(4) infinite, blink .5s ease infinite;
+}
+
+.pl-1::before {
+    animation: type 6s steps(9) infinite, blink .5s ease infinite;
+}
+
+.pl-2::before {
+    animation: type 6s steps(12) infinite, blink .5s ease infinite;
+}
+
+.pl-3::before {
+    animation: type 6s steps(11) infinite, blink .5s ease infinite;
+}
+
+section#header > .text > .line {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section#header > img#bg, section#header > img#bgClone {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(55vh + 20px);
+    object-fit: cover;
+    z-index: 0;
+}
+
+section#header > img#bg {
+    opacity: 1;
+}   
+section#header > img#bgClone {
+    animation: fade 1s ease;
+}
+
+section#header > div#searchbox {
+    position: absolute;
+    bottom: calc(20px - calc(75px / 2));
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section#header > div#searchbox > div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+section#header > div#searchbox > div > i {
+    position: absolute;
+    font-size: 21px;
+    opacity: .5;
+}
+
+section#header > div#searchbox > div > i:first-of-type {
+    left: 20px;
+}
+
+section#header > div#searchbox > div > i:last-of-type {
+    right: 20px;
+}
+
+section#header > div#searchbox > div > #search {
+    height: 75px;
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    padding: 0 60px;
+    background-color: var(-bg-main-alt);
+    box-shadow: -2px -2px 3px #f3f3f320, 3px 3px 5px #00000030;
+}
+
+section#popular{
+    z-index: 4;
+    width: 90%;
+    border-radius: 25px 25px 0 0;
+    transform: translateY(-20px);
+    background-color: var(--bg-main);
+    padding: 85px 5% 50px;
+}
+
+section#about{
+    z-index: 4;
+    width: 90%;
+    border-radius: 25px 25px 0 0;
+    transform: translateY(-20px);
+    background-color: var(--bg-main);
+    padding: 85px 5% 50px;
+}
+
+section > .title{
+    font-size: 36px;
+}
+
+section#popular > .grid {
+    display: grid;
+    grid-template-columns: repeat(4, calc(25% - 25px));
+    grid-gap: 25px;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+section#popular > .grid > .card {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+section#popular > .grid > .card::after {
+    position: absolute;
+    content: '';
+    background: radial-gradient(#00000000, #00000000);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    transition: background .35s ease-in;
+}
+
+section#popular > .grid > .card:hover::after {
+    background: radial-gradient(#00000030, #00000070);
+}
+
+section#popular > .grid > .card > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: transform .35s ease;
+}
+
+section#popular > .grid > .card:hover > img {
+    transform: scale(1.2);
+}
+
+section#popular > .grid > .card > .text {
+    position: absolute;
+    font-size: 42px;
+    color: var(--bg-main);
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+    z-index: 1;
+    max-width: 90%;
+    cursor: default;
+}
+
+section#about> .desc {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+section#about> .desc > .p {
+    opacity: .7;
+    font-family: 'Roboto Slab', serif;
+    padding-right: 5%;
+    width: 45%;
+}
+
+section#about> .desc > div:last-child {
+    padding-left: 5vw;
+    width: 45%;
+}
+
+section#about> .desc > div:last-child > .img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+section#about> .desc > div:last-child > .img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 10px;
+}
+
+section#about> .desc > div:last-child > .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section#about> .desc > div:last-child > .buttons > button {
+    border: none;
+    outline: none;
+    color: var(--c3);
+    background: transparent;
+    font-size: 24px;
+    border-radius: 100%;
+    margin: 0 10px;
+}
+
+section#popular > .grid > .card:hover > .text {
+    opacity: 1;
+}
+
+section#draw {
+    height: 50vh;
+    width: 90%;
+    padding: 0 5%;
+    background: url(../img/plane.jpg);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+section#draw::before {
+    position: absolute;
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .15;
+}
+section#draw > .err, section#draw > .success {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    animation: fade .5s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 36px;
+    color: var(--bg-main);
+    z-index: 3;
+    transition: opacity .5s ease-in;
+}  
+
+section#draw > .err {
+    background-color: var(--c4);
+}
+
+section#draw > .success {
+    background-color: var(--c3);
+    flex-direction: column;
+}
+
+section#draw > .success > div {
+    animation: appear .5s ease-in;
+    text-transform: uppercase;
+}
+
+section#draw > .success > div:last-child {
+    font-size: 72px;
+    margin-top: 10px;
+}
+
+section#draw > .text {
+    max-width: 30%;
+    font-size: 42px;
+    color: var(--c3);
+    z-index: 2;
+    transition: transform .5s ease-in;
+}
+
+section#draw > form {
+    position: relative;
+    width: 50%;
+    max-width: 500px;
+    z-index: 2;
+    transition: transform .5s ease-in;
+}
+
+section#draw > form > input {
+    width: calc(100% - 155px);
+    height: 40px;
+    padding: 0 145px 0 10px;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid var(--c3);
+    font-weight: bold;
+    font-size: 18px;
+    caret-color: var(--c3);
+    color: var(--c3);
+    background-color: var(--bg-main-alt);
+    border-radius: 5px;
+}
+
+section#draw > form > button {
+    height: calc(100% - 13px);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: var(--bg-main-alt);
+    background-color: var(--c3);
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+section#draw > #plane {
+    position: absolute;
+    left: 100%;
+    font-size: 72px;
+    animation: fly 3s ease;
+    color: var(--bg-main);
+    z-index: 5;
+
+}
+
+section#feedback {
+    width: 90%;
+    height: 100%;
+    padding: 75px 5%;
+    background-color: var(--bg-main);
+}
+
+section#feedback > .grid {
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, calc(25% - 25px));
+    grid-gap: 20px;
+}
+
+section#feedback > .grid > .card {
+    padding: 25px;
+    background-color: var(--c3);
+    color: var(--bg-main);
+    font-family: 'Roboto Slab', serif;
+}
+
+section#feedback > .grid > .card > .user {
+    display: flex;
+    margin-top: 20px;
+}
+
+section#feedback > .grid > .card > .user > .desc {
+    display: flex;
+    flex-direction: column;
+}
+
+section#feedback > .grid > .card > .user > .desc > .name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+section#feedback > .grid > .card > .user > .desc > .rating {
+    display: flex;
+}
+
+section#feedback > .grid > .card > .user > .img {
+    border-radius: 100%;    
+    height: 40px;
+    width: 40px;
+    border: 2px solid var(--bg-main);
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+section#feedback > .grid > .card > .user > .img > img  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section#feedback > .grid > .card > .quote {
+    font-size: 56px;
+    opacity: .7;
+    margin-bottom: 5px;
+}
+
+section#contact {
+    width: 100%;
+    height: 100%;
+    min-height: 40vh;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/cuba4.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+section#contact > .box {
+    position: relative;
+    padding: 25px 50px;
+    border-radius: 5px;
+    background-color: var(--bg-main);
+    box-shadow: 5px 5px 8px #28282890, -2px -2px 3px #f3f3f320;
+}
+
+section#contact > .box > #submitted {
+    width: calc(100% - 50px);
+    height: 0%;
+    position: absolute; 
+    left: 0;
+    bottom: 0;
+    transition: height .35s ease-in;
+    background-color: var(--c3);
+    color: var(--bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    border-radius: 5px;
+}
+
+section#contact > .box > #submitted > div {
+    animation: fade .35s ease-in-out;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+section#contact > .box, section#contact > .box > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#contact > .box > form > .input {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    width: 100%;
+}
+
+section#contact > .box > form > .input > div, section#contact > .box > form > .rating > div:first-child {
+    font-size: 18px;
+    color: var(--c3);
+    margin-bottom: 5px;
+}
+
+section#contact > .box > form > .input > input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--c3);
+    width: 100%;
+    height: 32px;
+    color: var(--c3);
+    caret-color: var(--c3);
+    font-size: 16px;
+    outline: none;
+    font-weight: bold;
+}
+
+section#contact > .box > form > .rating {
+    width: 100%;
+    color: var(--c3);
+    margin-top: 15px;
+}
+
+section#contact > .box > form > .rating > .rating-inner {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+section#contact > .box > form > .rating > .rating-inner > label > i {
+    font-size: 24px;
+}
+
+section#contact > .box > form > .rating > .rating-inner > label > i.hover {
+    opacity: .8;
+}
+
+section#contact > .box > form > .rating > .rating-inner > label > input {
+    display: none;
+}
+
+section#contact > .box > form > button {
+    background: var(--c3);
+    padding: 10px 15px;
+    color: var(--bg-main);
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 25px;
+    width: 100%;
+}
+
+div#advertisement {
+    position: fixed;
+    background: radial-gradient( #00000080 , #000000ee);
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#advertisement > div {
+    width: 90%;
+    height: min-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#advertisement > div > img {
+    width: 100%;
+    border: 10px solid var(--c3);
+}
+
+div#advertisement > div > .text {
+    font-size: 24px;
+    color: var(--bg-main);
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+div#advertisement > div > i {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    font-size: 36px;
+    color: var(--bg-main);
+    cursor: pointer;
+}
+
+
+@keyframes type {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    0% {
+        border-right: 2px solid var(--c3);
+    }
+    50% {
+        border-right: 2px solid var(--c3);
+    }
+    100% {
+        border-right: none;
+    }
+}
+
+@keyframes fade{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fly {
+    from {
+        left: -81px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    div#advertisement > div {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        padding-top: 85px;
+    }
+
+    section#about > .desc {
+        flex-direction: column-reverse;
+    }
+
+    section#about > .desc *:not(button):not(i) {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    section#about > .desc > div:last-child {
+        margin: 20px 0;
+    }
+
+    section#popular > .grid {
+        grid-template-columns: repeat(2, calc(50% - 25px));
+        grid-gap: 25px;
+    }
+
+    section#draw > .text {
+        font-size: 28px;
+    }
+
+    section#feedback > .grid {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section#header > .text {
+        font-size: 36px;
+    }
+
+    section#header > div#searchbox > div {
+        width: 90%;
+    }
+
+    section#draw {
+        flex-direction: column;
+    }
+    section#draw::before {
+        opacity: .5;
+    }
+    section#draw > .text {
+        width: 75%;
+        text-align: center;
+        max-width: 75%;
+        color: var(--bg-main)
+    }
+    
+}
+
+@media screen and (max-width: 576px) {
+    section#header > .text {
+        font-size: 28px;
+    }
+    section .grid {
+        grid-template-columns: repeat(1, 100%) !important;
+    }
+
+    section#draw > form {
+        width: 70%;
+    }
+
+    div#advertisement > div > .text {
+        font-size: 16px;
+        line-height: 50px;
+    }
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f958549087.js" crossorigin="anonymous"></script>
+    <script src="./js/prompt.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/advertisement.js"></script>
+    <script src="./js/nav.js"></script>
+    <title>DiscoverAmerica 🗺️</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/questions.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <div id="advertisement" class="hide">
+        <div>
+            <img src="./img/ad.png">
+            <div class="text">Publicidad: Descubre las ventajas de Google Cloud!</div>
+            <i onclick="this.parentNode.parentNode.remove()" class="fas fa-times-circle"></i>
+        </div>
+    </div>
+    <div id="nav-responsive" class="hide">
+        <ul>
+            <li><a href="./Cuba.html">Cuba</a></li>
+            <li><a href="./Nueva-York.html">Nueva York</a></li>
+            <li><a href="./Rio-de-Janeiro.html">Río de Janeiro</a></li>
+            <li><a href="./Buenos-Aires.html">Buenos Aires</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
+    <nav>
+        <div class="logo"><a href="./index.html">DISCOVERAMERICA</a></div>
+        <ul>
+            <li><a href="./Cuba.html">Cuba</a></li>
+            <li><a href="./Nueva-York.html">Nueva York</a></li>
+            <li><a href="./Rio-de-Janeiro.html">Río de Janeiro</a></li>
+            <li><a href="./Buenos-Aires.html">Buenos Aires</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <i id="toggleNavbar" onclick="toggleNavbar()" class="fas fa-bars"></i>
+    </nav>
+    <div id="questions-container">
+        <div class="box flex" id="question-1">
+            <div class="text">¿Cómo te llamas?</div>
+            <div class="inputbox">
+                <input onkeydown="nextQuestion(event)" id="q-name" type="text" placeholder="Introduce tu nombre" autofocus>
+                <i class="fas fa-arrow-right" onclick="nextQuestion()"></i>
+            </div>
+        </div>
+        <div class="box hide" id="question-2">
+            <div class="text">¿Has estado alguna vez en América?</div>
+            <div class="buttons">
+                <button onclick="finishQuestion(false)">No</button>
+                <button onclick="finishQuestion(true)">Sí</button>
+            </div>
+        </div>
+        <div class="msg hide">
+            <div class="text">Hola&nbsp;
+                <div id="name"></div>,&nbsp;
+                <div class="text" id="custom-msg"></div>
+            </div>
+        </div>
+    </div>
+    <section id="header">
+        <div class="text">
+            <div class="line">Descubre América y haz el</div>
+            <div class="line">viaje de tus sueños en&nbsp;
+                <div class="place pl-0" style="display: none;" data-text="Cuba">Cuba</div>
+                <div class="place pl-1" style="display: none;" data-text="Nueva York">Nueva York</div>
+                <div class="place pl-2" style="display: none;" data-text="Río de Janeiro">Río de Janeiro</div>
+                <div class="place pl-3" style="display: none;" data-text="Buenos Aires">Buenos Aires</div>
+            </div>
+        </div>
+        <div id="searchbox">
+            <div>
+                <i class="fas fa-map"></i>
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Busca un destino, por ejemplo, &quot;Cuba&quot;" id="search">
+            </div>
+        </div>
+        <img src="./img/bg0.jpg" alt="Cuba" id="bg">
+    </section>
+    <section id="popular">
+        <div class="title">Destinos más populares</div>
+        <div class="grid">
+            <div class="card">
+                <img src="./img/bg0.jpg" alt="">
+                <div class="text">CUBA</div>
+            </div>
+            <div class="card">
+                <img src="./img/bg1.jpg" alt="">
+                <div class="text">NUEVA YORK</div>
+            </div>
+            <div class="card">
+                <img src="./img/bg2.jpg" alt="">
+                <div class="text">RÍO DE JANEIRO</div>
+            </div>
+            <div class="card">
+                <img src="./img/bg3.jpg" alt="">
+                <div class="text">BUENOS AIRES</div>
+            </div>
+        </div>
+    </section>
+    <section id="draw">
+        <i id="plane" class="hide fas fa-plane"></i>
+        <div id="draw-err" class="hide"></div>
+        <p class="text">
+            ¡Introduce un número y gana un viaje a un destino sorpresa! 
+        </p>
+        <form onsubmit="submitNumber(event)">
+            <input type="text" id="draw-number">
+            <button type="submit" >PARTICIPAR</button>
+        </form>
+        <div class="empty"></div>
+    </section>
+    <section id="feedback">
+        <div class="title">
+            Qué dicen sobre nosotros
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis, explicabo repellat fugit quas sunt aliquam quae necessitatibus excepturi nesciunt vel iure temporibus, id dolor possimus? Facere dignissimos natus ipsam.</div>
+                <div class="user">
+                    <div class="img"><img src="./img/user_0.png"></div>
+                    <div class="desc">
+                        <div class="name">Miguel Espinosa</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis, explicabo repellat fugit quas sunt aliquam quae necessitatibus excepturi nesciunt vel iure temporibus, id dolor possimus? Facere dignissimos natus ipsam.</div>
+                <div class="user">
+                    <div class="img"><img src="./img/user_1.png"></div>
+                    <div class="desc">
+                        <div class="name">Ana López</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quis, explicabo repellat fugit quas sunt aliquam quae necessitatibus excepturi nesciunt vel iure temporibus, id dolor possimus? Facere dignissimos natus ipsam.</div>
+                <div class="user">
+                    <div class="img"><img src="./img/user_2.jpg"></div>
+                    <div class="desc">
+                        <div class="name">Fernando Galvez</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="box">
+            <div id="submitted" class="hide">
+                
+            </div>
+            <form onsubmit="submitContact(event)">
+                <div class="input">
+                    <div>Nombre:</div>
+                    <input required type="text" name="name">
+                </div>
+                <div class="input">
+                    <div>E-mail:</div>
+                    <input required type="email" name="email">
+                </div>
+                <div class="rating">
+                    <div>Valoración:</div>
+                    <div class="rating-inner" id="stars-rating">
+                        <label for="rating-1">
+                            <i data-value="1" class="setVal far fa-star"></i>
+                            <input type="radio" name="rating-radio" id="rating-1" value="1">
+                        </label>
+                        <label for="rating-2">
+                            <i data-value="2" class="far fa-star"></i>
+                            <input type="radio" name="rating-radio" id="rating-2" value="2">
+                        </label>
+                        <label for="rating-3">
+                            <i data-value="3" class="far fa-star"></i>
+                            <input type="radio" name="rating-radio" id="rating-3" value="3">
+                        </label>
+                        <label for="rating-4">
+                            <i data-value="4" class="far fa-star"></i>
+                            <input type="radio" name="rating-radio" id="rating-4" value="4">
+                        </label>
+                        <label for="rating-5">
+                            <i data-value="5" class="far fa-star"></i>
+                            <input type="radio" name="rating-radio" id="rating-5" value="5">
+                        </label>
+                    </div>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <div class="logo">DiscoverAmerica</div>
+            <ul>
+<li><a href="./Cuba.html">Cuba</a></li>
+            <li><a href="./Nueva-York.html">Nueva York</a></li>
+            <li><a href="./Rio-de-Janeiro.html">Río de Janeiro</a></li>
+            <li><a href="./Buenos-Aires.html">Buenos Aires</a></li>
+            </ul>
+        </div>
+        <div>
+            Por Óscar Muñoz Cano
+        </div>
+    </footer>
+</body>
+</html>

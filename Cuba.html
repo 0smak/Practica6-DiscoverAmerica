@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f958549087.js" crossorigin="anonymous"></script>
+    <script src="./js/cuba.js"></script>
+    <script src="./js/nav.js"></script>
+    <title>CUBA 🗺️ DiscoverAmerica</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <div id="nav-responsive" class="hide">
+        <ul>
+            <li><a href="./Cuba.html">Cuba</a></li>
+            <li><a href="./Nueva-York.html">Nueva York</a></li>
+            <li><a href="./Rio-de-Janeiro.html">Río de Janeiro</a></li>
+            <li><a href="./Buenos-Aires.html">Buenos Aires</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
+    <nav>
+        <div class="logo"><a href="./index.html">DISCOVERAMERICA</a></div>
+        <ul>
+            <li><a href="./Cuba.html">Cuba</a></li>
+            <li><a href="./Nueva-York.html">Nueva York</a></li>
+            <li><a href="./Rio-de-Janeiro.html">Río de Janeiro</a></li>
+            <li><a href="./Buenos-Aires.html">Buenos Aires</a></li>
+            <li><a href="./index.html#contact">Contacto</a></li>
+        </ul>
+        <i id="toggleNavbar" onclick="toggleNavbar()" class="fas fa-bars"></i>
+    </nav>
+    <section id="header">
+        <div class="text">
+            <div class="line">Disfruta de tu mejor experiencia</div>
+            <div class="line">viajando a&nbsp;<div style="color:var(--c3)">Cuba</div></div>
+        </div>
+        <img src="./img/bg0.jpg" alt="Cuba" id="bg">
+    </section>
+    <section id="about">
+        <div class="title">Cuba</div>
+        <div class="desc">
+           <div class="p">
+               <p> A la hora de diseñar este viaje, había varias condiciones inviolables: alejarnos del paquete turístico Habana-Varadero, recorrer la isla por libre y alojarnos en casas de cubanos.</p>
+               <p>Durante las dos semanas largas que pasamos en Cuba pudimos ver de todo: ciudades, pueblos, aldeas, parques
+                naturales, y playas.</p>
+               <p>Nuestra ruta empezó en La Habana, a la que llegamos con vuelo directo desde Madrid con casi tres horas de
+                retraso. En La Habana estuvimos los primeros tres días en los pudimos conocer en profundidad La Habana Vieja,
+                Habana Centro y el Vedado donde se concentran todo los hoteles carismáticos de la ciudad, las casas de la
+                música, los paladares,…y por supuesto pasear por el popular Malecón.</p>
+               <p>El cuarto día cogimos nuestro coche de alquiler y nos dirigiremos al este del país, a la región de Pinar del Río. Nos
+                alojamos en el pintoresco pueblo de Viñales para desde allí conocer el Parque Natural de Viñales, bañarnos en
+                CayoJutías y visitar una plantación de tabaco, con paseo a caballo incluido.</p>
+               <p>Desde allí nos fuimos hasta Playa Larga, en la Bahía de Cochinos, donde pudimos hacer un alto en el camino en
+                nuestra ruta hacia Cienfuegos (centro del país). En Cienfuegos estuvimos solo una noche.</p>
+               <p>Desde Cienfuegos nos dirigimos al turístico pueblo de Trinidad, cuyo casco antiguo es Patrimonio de la
+                Humanidad. Allí visitamos el pueblo, disfrutamos de su casa de la música, de los mojitos y nos acercaremos al
+                Valle de los Ingenios y a Playa Ancón.</p>
+               <p>Desde allí tocaba volver a La Habana para coger el vuelo de vuelta, con una parada en Santa Clara y una noche
+                en el camino en Varadero.</p>
+           </div>
+           <div>
+               <div class="img">
+                   <img data-n="1" id="cuba-img" src="./img/cuba1.jpg" alt="Cuba">
+               </div>
+               <div class="buttons">
+                   <button onclick="changeImage(false)"><i class="fas fa-backward"></i></button>
+                   <button onclick="changeImage(true)"><i class="fas fa-forward"></i></button>
+               </div>
+           </div>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <div class="logo">DiscoverAmerica</div>
+            <ul>
+<li><a href="./Cuba.html">Cuba</a></li>
+            <li><a href="./Nueva-York.html">Nueva York</a></li>
+            <li><a href="./Rio-de-Janeiro.html">Río de Janeiro</a></li>
+            <li><a href="./Buenos-Aires.html">Buenos Aires</a></li>
+            </ul>
+        </div>
+        <div>
+            Por Óscar Muñoz Cano
+        </div>
+    </footer>
+</body>
+</html>
